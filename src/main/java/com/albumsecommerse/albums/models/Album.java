@@ -1,4 +1,4 @@
-package com.albumsecommerse.albums.entities;
+package com.albumsecommerse.albums.models;
 
 import java.time.LocalDate;
 
@@ -84,4 +84,16 @@ public class Album {
     public void setArtist(Artist artist) {
         this.artist = artist;
     }
+
+    @Override
+    public String toString() {
+        return "Album{" +
+            "albId=" + alb_id +
+            ", albName='" + alb_name + '\'' +
+            ", albReleaseDate=" + alb_releaseDate +
+            ", albGenre='" + alb_genre + '\'' +
+            ", artist=" + (artist != null ? artist.getArt_name() : "null") +
+            '}';
+    }
+
 }

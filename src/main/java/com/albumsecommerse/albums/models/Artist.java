@@ -1,4 +1,4 @@
-package com.albumsecommerse.albums.entities;
+package com.albumsecommerse.albums.models;
 
 import java.util.List;
 
@@ -89,4 +89,14 @@ public class Artist {
         this.album = album;
     }
 
+    @Override
+    public String toString() {
+        return "Artist{" +
+            "artId=" + art_id +
+            ", artName='" + art_name + '\'' +
+            ", artDesc='" + art_desc + '\'' +
+            ", artImg='" + art_img + '\'' +
+            ", albums=" + (album != null ? album.size() : "null") +
+            '}';
+    }
 }

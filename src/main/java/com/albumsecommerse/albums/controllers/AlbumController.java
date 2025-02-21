@@ -7,12 +7,13 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.albumsecommerse.albums.entities.Album;
+import com.albumsecommerse.albums.models.Album;
 import com.albumsecommerse.albums.repositories.AlbumRepository;
 
 @RestController
@@ -31,7 +32,7 @@ public class AlbumController {
         return albumRepository.save(album);
     }
 
-    @GetMapping("/{id}")
+    @PutMapping("/{id}")
     public Album updateAlbum (@RequestParam Long id, @RequestBody Album upAlbum) {
         Album album = albumRepository.findById(id).orElseThrow(() -> new RuntimeException("Album not found"));
         album.setAlb_name(upAlbum.getAlb_name());
